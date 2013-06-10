@@ -1,0 +1,246 @@
+﻿@{
+    Layout = null;   
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>@***********DashBoard Header***********@
+    <link href="@Url.Content("~/Content/main.css")" rel="stylesheet" type="text/css"/>
+    <link href="@Url.Content("~/Content/grid.css")" rel="stylesheet" type="text/css"/>
+    <link href="@Url.Content("~/Content/ChatStyle.css")" rel="stylesheet" type="text/css"/>
+
+    @Styles.Render("~/Content/themes/base/css")
+    @***********End DashBoard Header***********@
+</head>
+<body>
+    @********************Popup Form************************@
+    <div class="lightFrame" style="display: none" id="cmsConfigForm">
+        <div class="pop">
+            @if (IsSectionDefined("Db_Popup"))
+            {
+                @RenderSection("Db_Popup", required: false)
+            }
+        </div>
+    </div>
+    @********************Popup Form************************@ @****************Top Navigation***********************@
+    <div class="topBar width1150">
+        <div class="headerCollapsHldr">
+            <a href="javascript:void(0)" class="collapseHdr">&nbsp;</a>
+        </div>
+
+        <div class="topLink rgt">
+            <a href="logoff" id="bgtnlogout">
+                <img src="@Url.Content("~/Content/images/icon_logout.png")" width="21" height="22" alt="" />Log Out</a>
+        </div>
+        <div class="topLink rgt" id="divfavorites">
+        </div>
+        <div class="topLink rgt">
+            <a href="javascript:void(0)">
+
+                <img src="@Url.Content("~/Content/images/icon_ptofile.png")" width="21" height="22" alt="" />
+                @Request.Cookies["Admin"].Value</a>
+        </div>
+        <div class="clr">
+        </div>
+    </div>
+    <div class="headerPart expand">
+        <div class="headerInner width1150">
+            <a href="@Url.RouteUrl("AdminDashboard")" class="logo2">&nbsp;</a>
+            <div class="headerLinksHolder">
+
+                <a href="javascript:void(0)" class="headerLinks openFav">
+                    <img src="@Url.Content("~/Content/images/icon_userList.png")" width="24" height="15" alt="User List" class="lft" /><span>Favourite</span></a>
+                <a href="@Url.RouteUrl("AdminDashboard")" class="headerLinks">
+                    <img src="@Url.Content("~/Content/images/icon_messageL.png")" width="18" height="15" alt="Message" class="lft" /><span>Dashboard</span></a>
+            </div>
+            <div class="clr">
+            </div>
+        </div>
+    </div>
+    @****************End Top Navigation***********************@
+    <div class='onePix'>
+        <div class='tdLInner'>
+            <ul class='bCloser'>
+
+                <li><a href="announcements">Sub Item</a></li>
+            </ul>
+            <div class='clr'></div>
+            <div class='tgHldr thrdLvl'>
+                <a href='javascript:void(0)' class=''>Main ITem</a><span class='spnCp'></span>
+                <div class='clr'></div>
+            </div>
+        </div>
+    </div>
+    <div class='onePix'>
+        <div class='tdLInner'>
+            <ul class='bCloser'>
+                <li><a href="announcements">Announcements</a></li>
+                <li><a href="feedback">Feedback</a></li>
+                <li><a href="contact">Contact</a></li>
+                <li><a href="chat">chat</a></li>
+            </ul>
+            <div class='clr'></div>
+            <div class='tgHldr thrdLvl'>
+                <a href='javascript:void(0)' class=''>Main Menu</a><span class='spnCp'></span>
+                <div class='clr'></div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="quick">
+        <div class="quickLink ">
+            <ul id="getTopFavourates">
+            </ul>
+            <div class="clr">
+            </div>
+            <a href="javascript:void(0)" class="rgt manageQuickLink mR60">Manage</a><div class="clr">
+            </div>
+        </div>
+        <div class="clr">
+        </div>
+    </div>
+  @*  <div>
+        <a href="javascript:void(0)" id="cook">Cookie Expire</a>
+    </div>*@
+    @if (Request.RawUrl.Split('/').Last() != "dashboard")
+    {
+        <div class="wrapper" id="wrapper">
+
+            <div class="contentHolder">
+                @****************Left Navigation***********************@
+
+                <div class="leftBox">
+
+                    <div class="leftController">
+                    </div>
+
+                    <ul class="mC">
+
+
+                        <li>
+                            @*<img src='Content/images/leftIcon2.png' width='19' height='19' alt='' />
+                            <a href='javascript:' class='hvDrop'>Header Name </a>
+                            <ul class='exAccord'>
+                                <h2>Header Name</h2>
+                                <li name="Menu"><a href='javascript:'>Announcements </a></li>
+
+                            </ul>*@
+                        </li>
+
+                        <li>@*<span class="mCollapse">&nbsp;</span>*@</li>
+                    </ul>
+
+                </div>
+
+                @****************End Left Navigation***********************@ @****************Right Navigation***********************@
+                <div class="rightBox wC">
+                    @if (IsSectionDefined("Db_pageHeading"))
+                    {
+                        @RenderSection("Db_pageHeading", required: false)
+                    }
+                    @if (IsSectionDefined("Db_rightFilter"))
+                    {
+                        @RenderSection("Db_rightFilter", required: false)
+                    }
+                    <div class="clr">
+                    </div>
+                    @if (IsSectionDefined("Db_rightTop"))
+                    {
+                        @RenderSection("Db_rightTop", required: false)
+                    }
+                    @if (IsSectionDefined("Db_rightNav"))
+                    {
+                        @RenderSection("Db_rightNav", required: false)
+                    }
+                </div>
+            </div>
+
+            @****************End Right Navigation***********************@
+            @RenderBody()
+            <div class="clr">
+            </div>
+        </div>
+    }
+    else if (Request.RawUrl.Split('/').Last() == "dashboard")
+    {
+
+        <div class="wrapper">
+            <div class="slideIndicator">
+                <h3>Dashboard</h3>
+                <div class="clr"></div>
+            </div>
+
+        </div>
+
+    }
+
+    @if (IsSectionDefined("Db_Dashboard"))
+    {
+        @RenderSection("Db_Dashboard", required: false)
+    }
+
+
+
+@* </div>*@ @****************Footer***********************@
+    <div class="footerHolder">
+        <div id="divContainer" class="chatLine">
+            <div class="content">
+                <input id="hdId" type="hidden" />
+                <input id="hdUserName" type="hidden" />
+            </div>
+        </div>
+       @* <div class="wrapper">
+            All rights are reserved @@ Vitanutrition.com &copy; [@DateTime.UtcNow.Year]
+        </div>*@
+    </div>
+    @****************End Footer***********************@ @****************************************Scripts files***************************************@
+
+
+    @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/bundles/jqueryui")
+
+    @Scripts.Render("~/Content/AdminJs")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    <script src="~/Scripts/jquery.signalR-1.0.0.js"></script>
+    <!--Reference the autogenerated SignalR hub script. -->
+    <script src="~/signalr/hubs"></script>
+
+
+    
+
+
+    <script type="text/javascript">
+        $.ajaxSetup({ cache: false });
+        var urlkey = '@System.Configuration.ConfigurationManager.AppSettings["SiteUrl"]';
+        li_id = 0;
+        li_id1 = 0;
+        var ul_Control = '';
+        var order = '';
+        $(document).ready(function () {
+            formHtml1 = $('.lightFrame').html(); //Copy html to var 
+            $('.lightFrame').remove(); // remove HTML        
+            resetGrid();
+            //remove code softeng not working.
+
+
+
+        });
+
+
+
+    </script>
+
+    @if (IsSectionDefined("Db_Header"))
+    {
+        @RenderSection("Db_Header", required: false)    
+    }
+  
+@****************************************End Scripts files***************************************@
+</body>
+</html>

@@ -1,0 +1,467 @@
+﻿@{
+    Layout = null;   
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Auto 3000</title>
+    <link href="@Url.Content("~/includes/styles/main.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/ChatStyle.css")" rel="stylesheet" type="text/css"/>
+    <link href="@Url.Content("~/Content/JQueryUI/themes/base/jquery.ui.all.css")" rel="stylesheet" type="text/css"/>
+    <link href='http://fonts.googleapis.com/css?family=Cuprum:400,700' rel='stylesheet' type='text/css' />
+
+
+
+
+    <link href="includes/styles/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+
+<body>
+    @RenderBody()
+
+    <div id="divContainer">
+        <div class="content chatBox" id="divlgn" style="display: none;">
+            <div rel="0" style="width: 273px;">
+                <div class="chatHead">
+                    <div style="float: right;">
+                        <img src="/includes/images/delete.png" alt="" style="cursor: pointer;" id="imglgnDelete" />
+                    </div>
+                    <span rel="0" class="selText">Fill Name</span>
+                </div>
+                <div class="chatBody" id="divMessage">
+                    <div class="message">
+                        <div id="divLogin" class="login" style="width: 206px;">
+                            <div>
+                                Your Name:<br />
+                                <input id="txtNickName" type="text" maxlength="50" class="textBox" style="width: 206px;" />
+                            </div>
+                            <div id="divButton">
+                                <input id="btnStartChat" type="button" class="submitButton" value="Start Chat" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <input id="hdId" type="hidden" />
+            <input id="hdUserName" type="hidden" />
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="title">
+            <h3 style="background-image: url(includes/images/icon_tel.png)"><span>+0012</span>  3456 789</h3>
+            <h3><span>Make an </span>Appoinment</h3>
+            <div class="routeBox">
+                <input name="" type="text" class="textBox1" /><a href="#" class="grnBtn">ROUTE</a>
+            </div>
+            <ul class="topLinks">
+                <li><a href="#">Mentanance</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Home</a></li>
+            </ul>
+        </div>
+        <div class="clr"></div>
+        <div class="header">
+            <div class="relative">
+                <img src="includes/images/img01.jpg" width="960" height="220" alt="" />
+                <img src="includes/images/logo.png" width="152" height="122" alt="" class="logo" />
+                <div class="menuBox">
+                    <ul>
+                        <li><a href="#">MENU ITEM</a></li>
+                        <li><a href="#">MENU ITEM</a></li>
+                        <li><a href="#">MENU ITEM</a></li>
+                        <li><a href="#">MENU ITEM</a></li>
+                    </ul>
+                </div>
+                <div class="searchBox">
+                    <input name="" type="text" class="textBox1" />
+                    <a href="#" class="grnBtn">SEARCH</a>
+                </div>
+            </div>
+        </div>
+
+        @RenderSection("MiddlePart", required: false)
+        <div class="footerBoxL">
+            <ul class="floatleft">
+                <h3><span>About</span> us</h3>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Our Partners</a></li>
+                <li><a href="#">Advertising Online</a></li>
+                <li><a href="#">Site Map</a></li>
+            </ul>
+            <ul class="floatleft">
+                <h3><span>Need</span> help?</h3>
+                <li><a href="#">How do i add an offer?</a></li>
+                <li><a href="#">How do i find a vehicle?</a></li>
+                <li><a href="#">Prive list</a></li>
+                <li><a href="#">Office for car dealers</a></li>
+            </ul>
+            <ul class="floatleft">
+                <h3><span>User</span> area</h3>
+                <li><a href="#">Add an offer</a></li>
+                <li><a href="#">Register dealer</a></li>
+                <li><a href="#">Login dealer</a></li>
+                <li><a href="#">News</a></li>
+            </ul>
+            <div class="lft floatleft">
+                <h3><span>Find</span> us here</h3>
+                <a href="#">
+                    <img src="includes/images/fb.png" border="0" class="social" /></a>
+                <a href="#">
+                    <img src="includes/images/twitr.png" border="0" class="social" /></a>
+                <a href="#">
+                    <img src="includes/images/plus.png" border="0" class="social" /></a>
+                <div class="clr"></div>
+                <p>Become our fan and we will love you forever</p>
+            </div>
+            <div class="clr"></div>
+        </div>
+        <div class="footerBoxS">
+            <ul class="ftrlft">
+                <li><a href="#">Customer Services</a></li>
+                <li><a href="#">Company Info</a></li>
+                <li><a href="#">Site Map</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Terms and Conditions</a></li>
+                <li><a href="#" style="border: none;">Privacy Policy</a></li>
+            </ul>
+            <div>
+                <img width="151" id="chtopen" height="48" class="chatIcon" alt="" src="@Url.Content("~/includes/images/home3_17.png")" />
+            </div>
+            <div class="clr"></div>
+            Copyright &copy; Car Dealer . All Rights Reserved.
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.8.2.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/includes/js/jquery.cycle.all.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/includes/js/jquery.easing.1.3.js")"></script>
+    <script src="~/includes/js/jquery-ui-1.8.2.custom.min.js"></script>
+    @*<script type="text/javascript" src="@Url.Content("~/includes/js/jquery-ui-1.10.3.custom.min.js")"></script>*@
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.cookie.js")"></script>
+
+    
+
+    <script type="text/javascript" src="~/Scripts/jquery.signalR-1.0.0.js"></script>
+    <!--Reference the autogenerated SignalR hub script. -->
+    <script type="text/javascript" src="~/signalr/hubs"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+            //$("#sliderRange").slider({
+            //    range: true,
+            //    min: 0,
+            //    max: 500
+            //    values: [50, 500],
+            //    slide: function (event, ui) {
+            //        $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+            //    }
+            //});
+
+
+
+            //$('#slideshow').cycle({
+            //    prev: '#prev',
+            //    next: '#next',
+            //    fx: 'scrollHorz',
+            //    easing: 'easeOutBack',
+            //    speed: 1300,
+            //    timeout: 8000
+            //});
+        });
+        var UserID = "";
+        $(function () {
+
+            setScreen(false);
+
+            // Declare a proxy to reference the hub. 
+
+
+        });
+
+        var chatHub = $.connection.chatHubs;
+        UserID = window.encodeURIComponent("@Session["UserId"]");
+        $.connection.hub.qs = "uid=" + UserID + "&clientId=" + "";
+        registerClientMethods(chatHub);
+
+        // Start Hub
+        $.connection.hub.start().done(function () {
+
+            registerEvents(chatHub)
+
+            $('#imglgnDelete').click(function ()
+            { $('#divlgn').hide(); });
+
+        });
+
+
+
+        function setScreen(isLogin) {
+
+            if (!isLogin) {
+
+                $("#divChatWindow").hide();
+                $("#divLogin").show();
+            }
+            else {
+
+                $("#divChatWindow").show();
+                $("#divLogin").hide();
+            }
+
+        }
+
+        function registerEvents(chatHub) {
+            if (window.encodeURIComponent("@Session["UserId"]") != null && window.encodeURIComponent("@Session["UserId"]") != "" && window.encodeURIComponent("@Session["UserId"]") != "undefiend"
+              && $.cookie('clientconnectionid') != 'null' && $.cookie('clientconnectionid') != "" && $.cookie('clientconnectionid') != "undefiend") {
+                if ($.cookie('clientname') != null && $.cookie('clientname') != "" && $.cookie('clientname') != "undefiend") {
+                    BindGrid();
+                }
+
+
+            }
+
+            function BindGrid() {
+                var UserID = window.encodeURIComponent("@Session["UserId"]");
+
+                var html = "";
+                var viewUrl = "admin/chat?userId=" + UserID + "&clientId=" + $.cookie('clientconnectionid');
+                $.ajax({
+                    type: "GET",
+                    url: viewUrl,
+                    dataType: 'json',
+                    async: false,
+                    success: function (response) {
+                        var ClientId = "";
+                        var UserName = "";
+                        if (response.length > 0) {
+                            chatHub.server.connect($.cookie('clientname'));
+                        }
+                        for (var i = 0; i < response.length; i++) {
+
+                            if (response[i].ToUserId == ClientId || response[i].FromUserId == ClientId) {
+                                var ctrId = "pv_" + ClientId;
+                                var ctrId = "pv_" + ClientId;
+                                if (response[i].FromUserId == UserID)
+                                    $('#' + ctrId).find('#divMessage').append('<div class="message"><span class="userName">' + response[i].UserName + '</span>: ' + response[i].Message + '</div>');
+                                else
+                                    $('#' + ctrId).find('#divMessage').append('<div class="message"  style="color:#60B572"><span class="userName">' + response[i].UserName + '</span>: ' + response[i].Message + '</div>');
+
+                                var height = $('#' + ctrId).find('#divMessage')[0].scrollHeight;
+                                $('#' + ctrId).find('#divMessage').scrollTop(height);
+                            }
+                            else {
+                                ClientId = response[i].ToUserId;
+                                var ctrId = "pv_" + response[i].ToUserId;
+                                UserName = response[i].UserName;
+                                createPrivateChatWindow(chatHub, response[i].ToUserId, ctrId, response[i].ClientName);
+
+                                $('#' + ctrId).find('#divMessage').append('<div class="message"><span class="userName">' + response[i].UserName + '</span>: ' + response[i].Message + '</div>');
+
+                            }
+
+                        }
+
+
+                    },
+                    error: function (response) {
+                        alert("Server Error!");
+                    }
+                });
+            }
+
+            $("#btnStartChat").click(function () {
+                var name = $("#txtNickName").val();
+                if (name.length > 0) {
+                    $('#divlgn').hide();
+                    chatHub.server.connect(name);
+                    chatHub.server.assignUser();
+                    $.cookie('clientname', null);
+                    $.cookie('clientname', name, { expires: 1 });
+                }
+                else {
+                    alert("Please enter name");
+                }
+
+            });
+
+            $("#chtopen").click(function () {
+                $('#divLogin').show();
+                $('.content').show()
+            });
+
+
+        }
+        function registerClientMethods(chatHub) {
+
+            chatHub.client.userTyping = function (name, sndrid) {
+                $('#isTyping').show().html('<em>' + name + ' is typing</em>');
+                setTimeout(function () {
+                    $('#isTyping').hide().html('&nbsp;');
+                }, 3000);
+            };
+
+            chatHub.client.onUserConnected = function (id, userName) {
+                var ctrId = "pv_" + id;
+
+                createPrivateChatWindow(chatHub, id, ctrId, userName)
+
+            }
+            // Calls when user successfully logged in
+            chatHub.client.onConnected = function (id, userName, allUsers, messages) {
+
+                setScreen(true);
+
+                $('#hdId').val(id);
+                $('#hdUserName').val(userName);
+                $('#spanUser').html(userName);
+
+                // Add All Users
+                for (i = 0; i < allUsers.length; i++) {
+
+                    AddUser(chatHub, allUsers[i].ConnectionId, allUsers[i].UserName);
+                }
+
+                // Add Existing Messages
+                for (i = 0; i < messages.length; i++) {
+
+                    AddMessage(messages[i].UserName, messages[i].Message);
+                }
+
+
+            }
+
+            // On New User Connected
+            chatHub.client.onNewUserConnected = function (id, name) {
+
+                AddUser(chatHub, id, name);
+            }
+
+
+            // On User Disconnected
+            chatHub.client.onUserDisconnected = function (id, userName) {
+                var ctrId = 'pv_' + id;
+                $('#' + ctrId).find('#isTyping').show().html('<div class="disconnect">"' + userName + '" logged off.</div>');
+                $('#' + ctrId).find("#txtPrivateMessage").attr("disabled", "disabled").empty();
+            }
+
+            chatHub.client.messageReceived = function (userName, message) {
+
+                AddMessage(userName, message);
+            }
+
+
+            chatHub.client.sendPrivateMessage = function (windowId, fromUserName, message, iscaller) {
+
+                var ctrId = 'pv_' + windowId;
+
+
+                if ($('#' + ctrId).length == 0) {
+                    $.cookie('clientconnectionid', null);
+
+                    createPrivateChatWindow(chatHub, windowId, ctrId, fromUserName, iscaller);
+
+                    $.cookie('clientconnectionid', windowId + ',', { expires: 1 });
+                }
+                if (iscaller == 1)
+                    $('#' + ctrId).find('#divMessage').append('<div class="message" ><span class="userName">' + fromUserName + '</span>: ' + message + '</div>');
+                else
+                    $('#' + ctrId).find('#divMessage').append('<div class="message" style="color:#60B572"><span class="userName">' + fromUserName + '</span>: ' + message + '</div>');
+
+                $('#' + ctrId).find('#isTyping').hide();
+                // set scrollbar
+                var height = $('#' + ctrId).find('#divMessage')[0].scrollHeight;
+                $('#' + ctrId).find('#divMessage').scrollTop(height);
+
+            }
+
+        }
+
+        function createPrivateChatWindow(chatHub, userId, ctrId, userName) {
+
+            //  if (ctrId != "pv_" + 0 && ctrId != "pv_") {
+            var div = '<div id="' + ctrId + '" class="content chatBox"><div  class="chatid" rel="0"  style="width:273px;"><div class="chatHead"><div  style="float:right;"><img id="imgDelete"  style="cursor:pointer;" src="@Url.Content("~/includes/images/delete.png")" /></div>';
+            div += '<span class="selText" rel="0">' + userName + '</span></div><div id="divMessage" class="chatBody" style="height:200px;">';
+            if (ctrId != "pv_" + 0 && ctrId != "pv_")
+                div += '<div class="message"><span class="userName" style="color: #60B572;">' + userName + '</span>: ' + "Hello! My name is " + userName + " how can I help you?" + '</div>';
+            else
+                div += '<div class="message"> Sorry. No one is available for assistance. Please enter your message below. We will revert to you soon via mail.</div>';
+
+            div += '</div><span id="isTyping"></span><div class="chatFooter"><input id="txtPrivateMessage" class="txtmsg" type="text"/><input id="btnSendMessage" class="submitButton button" type="button" value="Send" style="display:none;"/></div></div></div><div>';
+            var $div = $(div);
+
+            // DELETE BUTTON IMAGE
+            $div.find('#imgDelete').click(function () {
+                $('#' + ctrId).remove();
+                var UserId = ctrId.split('_');
+                var Id = $.cookie('clientconnectionid');
+                var CId = Id.replace(UserId[1] + ',', "");
+                $.cookie('clientconnectionid', null);
+                $.cookie('clientname', null);
+                $("#txtNickName").val('');
+            });
+
+            // Send Button event
+            $div.find("#btnSendMessage").click(function () {
+
+                $textBox = $div.find("#txtPrivateMessage");
+                var msg = $textBox.val();
+                if (msg.length > 0) {
+
+                    chatHub.server.sendPrivateMessage(userId, msg, 'C');
+                    $textBox.val('');
+                    $.cookie('clientconnectionid', userId + ',', { expires: 1 });
+                }
+            });
+
+            // Text Box event
+            var keyPressCount = 0;
+
+            $div.find("#txtPrivateMessage").keypress(function (e) {
+                if (keyPressCount++ % 10 == 0) {
+                    chatHub.server.keypressed(userId, userName);
+                }
+                if (e.which == 13) {
+                    $div.find("#btnSendMessage").click();
+                }
+            });
+
+            AddDivToContainer($div);
+            //}
+
+            //else {
+            //    alert(1);
+            //    var div = '<div id="' + ctrId + '" class="content chatBox"><div  class="chatid" rel="0"  style="width:273px;"><div class="chatHead"><div  style="float:right;"><img id="imgDelete"  style="cursor:pointer;" src="/includes/images/delete.png"/></div>';
+            //    div += '<span class="selText" rel="0">' + userName + '</span></div><div id="divMessage" class="chatBody" style="height:218px;">';
+            //    div += '<div class="message"> Sorry. No one is available for assistance. Please enter your message below. We will revert to you soon via mail.</div>';
+            //    div += '<div id="divOffMsg" class="login" style="width: 206px; height: 137px;"><div>';
+            //    div += 'Emai:<br/><input id="txtEmail" type="text" maxlength="80" class="textBox" style="width: 210px;" /></div><div>Comment:<br/>';
+            //    div += '<textarea id="txtMsg" cols="4" rows="2" style="width: 210px;"></textarea><br/><br/><input id="btnSbmtComnt" type="button" class="submitButton" value="Submit" />';
+            //    div += '</div><div>';
+            //    var $div = $(div);
+            //    $div.find("#btnSbmtComnt").click(function (e) {
+            //        alert(1);
+            //    });
+            //    $('#divContainer').prepend($div);
+            //}
+        }
+
+        function AddDivToContainer($div) {
+            $('#divContainer').prepend($div);
+
+        }
+
+
+    </script>
+</body>
+</html>
+
+
+
+

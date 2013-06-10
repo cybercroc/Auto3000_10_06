@@ -1,0 +1,69 @@
+﻿@model Auto3000.Models.LoginModel
+@{    
+    
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link href="@Url.Content("~/Content/login.css")" rel="stylesheet" type="text/css" />
+    @*   @Styles.Render("~/Content/css")*@
+</head>
+<body>
+    <div class="wrapper">
+        <div class="topBar logInTop">
+            <div class="topLink rgt">
+                <a href="javascript:void(0)">
+                    <img src="@Url.Content("~/Content/images/icon_user.png")" width="21" height="22" alt="" /><strong>Contact
+                        Admin</strong> </a>
+            </div>
+            <div class="clr">
+            </div>
+        </div>
+        <div class="logInHolder">
+            <img src="@Url.Content("~/Content/images/Logo_AUTO-3000.png")" alt="" width="125" height="125" class="logo" />
+            <div class="logInBox">
+                <div class="logInhead">
+                    <img src="@Url.Content("~/Content/images/icon_Login.png")" width="69" height="38" alt="" />
+                </div>
+                @using (Html.BeginForm())
+                {                    
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary()
+                    <input type="hidden" name="hdnPSID" id="hdnPSID" />                  
+                    <div id="primary">
+                        <div class="loginRow txtBox1 field-validation-error">
+                            <label>
+                                User Name :</label>
+                            @Html.TextBoxFor(m => m.UserName, new { @maxlength = "20", @class = "fT" })
+                            <div class="clr">
+                            </div>
+                        </div>
+                        <div class="loginRow txtBox1 field-validation-error">
+                            <label>
+                                Password :</label>
+                            @Html.PasswordFor(m => m.Password, new { @maxlength = "20" })
+                            <div class="clr">
+                            </div>
+                        </div>
+
+                        <div class="clr">
+                        </div>
+                        <div class="loginRow">
+                            <input name="prLogin" type="submit" class="btn1 rgt prLogin" id="prLogin" value="Submit" />
+                            <div class="clr">
+                            </div>
+                        </div>
+                        @*   @Html.ValidationSummary(false)*@
+                    </div>                        
+                }
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript">
+        $.cookie('srconnectionid', null);
+    </script>
+</body>
+</html>

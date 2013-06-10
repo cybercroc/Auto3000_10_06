@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Auto3000Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="Auto3000ModelStoreContainer" />
+        <Function Name="usp_AdminUser_ins" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Admin">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserTypeId" Type="int" Mode="In" />
+          <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="usp_AdminUser_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Admin">
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="usp_AdminUsers_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Admin">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_Announcement_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Admin">
+          <Parameter Name="AnnouncementId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_Announcement_ins" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Admin">
+          <Parameter Name="AnnouncementId" Type="int" Mode="In" />
+          <Parameter Name="Title" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Expiry" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="usp_Announcement_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Admin">
+          <Parameter Name="AnnouncementId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_ChatHistory_ins" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Admin">
+          <Parameter Name="ToUserId" Type="nvarchar" Mode="In" />
+          <Parameter Name="FromUserId" Type="nvarchar" Mode="In" />
+          <Parameter Name="Message" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="ClientName" Type="nvarchar" Mode="In" />
+          <Parameter Name="ConnectionId" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="usp_ChatHistory_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Admin">
+          <Parameter Name="FromUserId" Type="nvarchar" Mode="In" />
+          <Parameter Name="ToUserId" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="usp_Contacts_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Admin">
+          <Parameter Name="ContactId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_Contacts_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Admin">
+          <Parameter Name="ContactId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_Contacts_upd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Admin">
+          <Parameter Name="ContactId" Type="int" Mode="In" />
+          <Parameter Name="IsApproved" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="usp_Feedbacks_Del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Admin">
+          <Parameter Name="FeedBackId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_Feedbacks_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Admin">
+          <Parameter Name="FeedBackId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_Feedbacks_upd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Admin">
+          <Parameter Name="FeedBackId" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsShown" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="usp_Users_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Admin">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_Feedbacks_ins" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Customer">
+          <Parameter Name="UserId" Type="nvarchar" Mode="In" />
+          <Parameter Name="FeedBack" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Ratings" Type="int" Mode="In" />
+          <Parameter Name="QuestionId" Type="int" Mode="In" />
+          <Parameter Name="Answers" Type="nvarchar(max)" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Auto3000Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" p1:LazyLoadingEnabled="true" >
+          <FunctionImport Name="usp_Contacts_del">
+          <Parameter Name="ContactId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Contacts_sel" ReturnType="Collection(Auto3000Model.usp_Contacts_sel_Result)">
+          <Parameter Name="ContactId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Contacts_upd">
+            <Parameter Name="ContactId" Mode="In" Type="Int32" />
+            <Parameter Name="IsApproved" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Feedbacks_Del">
+          <Parameter Name="FeedBackId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Feedbacks_sel" ReturnType="Collection(Auto3000Model.usp_Feedbacks_sel_Result)">
+          <Parameter Name="FeedBackId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Feedbacks_upd">
+            <Parameter Name="FeedBackId" Mode="In" Type="String" />
+            <Parameter Name="IsShown" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Feedbacks_ins">
+            <Parameter Name="UserId" Mode="In" Type="String" />
+            <Parameter Name="FeedBack" Mode="In" Type="String" />
+            <Parameter Name="Ratings" Mode="In" Type="Int32" />
+            <Parameter Name="QuestionId" Mode="In" Type="Int32" />
+            <Parameter Name="Answers" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_AdminUser_sel" ReturnType="Collection(String)">
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Announcement_del">
+          <Parameter Name="AnnouncementId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Announcement_ins" ReturnType="Collection(Int32)">
+            <Parameter Name="AnnouncementId" Mode="In" Type="Int32" />
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="Expiry" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Announcement_sel" ReturnType="Collection(Auto3000Model.usp_Announcement_sel_Result)">
+          <Parameter Name="AnnouncementId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ChatHistory_ins">
+            <Parameter Name="ToUserId" Mode="In" Type="String" />
+            <Parameter Name="FromUserId" Mode="In" Type="String" />
+            <Parameter Name="Message" Mode="In" Type="String" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="ClientName" Mode="In" Type="String" />
+            <Parameter Name="ConnectionId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ChatHistory_sel" ReturnType="Collection(Auto3000Model.usp_ChatHistory_sel_Result)">
+            <Parameter Name="FromUserId" Mode="In" Type="String" />
+            <Parameter Name="ToUserId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_AdminUser_ins" ReturnType="Collection(Int32)">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="UserTypeId" Mode="In" Type="Int32" />
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_AdminUsers_del">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Users_sel" ReturnType="Collection(Auto3000Model.usp_Users_sel_Result)">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="usp_Contacts_sel_Result">
+          <Property Type="Int32" Name="ContactId" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="true" MaxLength="201" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Phone" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="ZipCode" Nullable="true" MaxLength="10" />
+          <Property Type="Boolean" Name="IsApproved" Nullable="false" />
+          <Property Type="String" Name="SentDate" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="SubjectName" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="usp_Feedbacks_sel_Result">
+          <Property Type="Int32" Name="FeedBackId" Nullable="false" />
+          <Property Type="String" Name="FeedBack" Nullable="true" />
+          <Property Type="Int32" Name="Ratings" Nullable="false" />
+          <Property Type="Boolean" Name="Show" Nullable="false" />
+          <Property Type="String" Name="SentDate" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Answers" Nullable="false" />
+          <Property Type="String" Name="Question" Nullable="false" MaxLength="300" />
+          <Property Type="String" Name="UserId" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="usp_Announcement_sel_Result">
+          <Property Type="Int32" Name="AnnouncementId" Nullable="false" />
+          <Property Type="String" Name="ExpiryDate" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="1000" />
+        </ComplexType>
+        <ComplexType Name="usp_ChatHistory_sel_Result">
+          <Property Type="String" Name="ToUserId" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="FromUserId" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Message" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ClientName" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="usp_Users_sel_Result">
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="UserTypeId" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Auto3000ModelStoreContainer" CdmEntityContainer="Entities" >
+          <FunctionImportMapping FunctionImportName="usp_Contacts_del" FunctionName="Auto3000Model.Store.usp_Contacts_del" />
+          <FunctionImportMapping FunctionImportName="usp_Contacts_sel" FunctionName="Auto3000Model.Store.usp_Contacts_sel">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Auto3000Model.usp_Contacts_sel_Result">
+                <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+                <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_Contacts_upd" FunctionName="Auto3000Model.Store.usp_Contacts_upd" />
+          <FunctionImportMapping FunctionImportName="usp_Feedbacks_Del" FunctionName="Auto3000Model.Store.usp_Feedbacks_Del" />
+          <FunctionImportMapping FunctionImportName="usp_Feedbacks_sel" FunctionName="Auto3000Model.Store.usp_Feedbacks_sel">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Auto3000Model.usp_Feedbacks_sel_Result">
+                <ScalarProperty Name="FeedBackId" ColumnName="FeedBackId" />
+                <ScalarProperty Name="FeedBack" ColumnName="FeedBack" />
+                <ScalarProperty Name="Ratings" ColumnName="Ratings" />
+                <ScalarProperty Name="Show" ColumnName="Show" />
+                <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+                <ScalarProperty Name="Answers" ColumnName="Answers" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_Feedbacks_upd" FunctionName="Auto3000Model.Store.usp_Feedbacks_upd" />
+          <FunctionImportMapping FunctionImportName="usp_Feedbacks_ins" FunctionName="Auto3000Model.Store.usp_Feedbacks_ins" />
+          <FunctionImportMapping FunctionImportName="usp_AdminUser_sel" FunctionName="Auto3000Model.Store.usp_AdminUser_sel" />
+          <FunctionImportMapping FunctionImportName="usp_Announcement_del" FunctionName="Auto3000Model.Store.usp_Announcement_del" />
+          <FunctionImportMapping FunctionImportName="usp_Announcement_ins" FunctionName="Auto3000Model.Store.usp_Announcement_ins" />
+          <FunctionImportMapping FunctionImportName="usp_Announcement_sel" FunctionName="Auto3000Model.Store.usp_Announcement_sel">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Auto3000Model.usp_Announcement_sel_Result">
+                <ScalarProperty Name="AnnouncementId" ColumnName="AnnouncementId" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ChatHistory_ins" FunctionName="Auto3000Model.Store.usp_ChatHistory_ins" />
+          <FunctionImportMapping FunctionImportName="usp_ChatHistory_sel" FunctionName="Auto3000Model.Store.usp_ChatHistory_sel">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Auto3000Model.usp_ChatHistory_sel_Result">
+                <ScalarProperty Name="ToUserId" ColumnName="ToUserId" />
+                <ScalarProperty Name="FromUserId" ColumnName="FromUserId" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_AdminUser_ins" FunctionName="Auto3000Model.Store.usp_AdminUser_ins" />
+          <FunctionImportMapping FunctionImportName="usp_AdminUsers_del" FunctionName="Auto3000Model.Store.usp_AdminUsers_del" />
+          <FunctionImportMapping FunctionImportName="usp_Users_sel" FunctionName="Auto3000Model.Store.usp_Users_sel">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Auto3000Model.usp_Users_sel_Result">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Default" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

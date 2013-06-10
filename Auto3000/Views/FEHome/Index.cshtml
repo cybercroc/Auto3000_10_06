@@ -1,0 +1,117 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_FELayout.cshtml";
+}
+
+@section MiddlePart {
+    <div class="contentArea">
+        <div class="lft">
+            <div class="selection">
+                <h5>Selection Criteria</h5>
+                <div class="selectBix">
+                    <label>Price range </label>
+                    <div id="sliderRange"></div>
+                    <input type="text" id="amount" style="border: 0; color: #303030; font-weight: bold; background-color: #f4f4f4" value="$50 - $500" readonly="readonly" />
+                </div>
+                <div class="selectBix">
+                    <label>Fuel type</label>
+                    <select name="">
+                        <option>All type</option>
+                    </select>
+                </div>
+                <div class="selectBix">
+                    <a href="#" class="grnBtn">SUBMIT</a>
+                </div>
+            </div>
+        </div>
+        <div class="rgt">
+            <h1><span>Featured</span> Cars</h1>
+            <div class="sliderframe floatleft">
+                <div id="slideshow">
+                    <div class="slide">
+                        <img src="includes/images/slider1.png" alt="" />
+                        <div class="link">
+                            <li>Brand</li>
+                            <li>Brand</li>
+                            <li>Brand</li>
+                            <li>Brand</li>
+                            <li>Brand</li>
+                            <li>Brand</li>
+                            <a href="#">Brand</a>
+                        </div>
+                    </div>
+
+                    <div class="slide">
+                        <img src="includes/images/slider1.png" alt="" />
+                        <div class="link">
+                            <li>Brand</li>
+                            <li>Brand</li>
+                            <a href="#">Brand</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="nav"><a id="prev" href="#" title="Previous">Prev</a></div>
+                <div id="nav1"><a id="next" href="#" title="Next">Next</a>		</div>
+
+            </div>
+        </div>
+        <div class="clr"></div>
+        <div class="lft">
+            <h1><span>Branding</span> Text</h1>
+        </div>
+        <div class="rgt">
+            <h1><span>Branding</span> Videos</h1>
+        </div>
+        <div class="clr"></div>
+        <div class="lft">
+            <h1><span>USP</span> 's</h1>
+            <div class="lft-holder">
+                <img src="includes/images/icon1.png" class="floatleft" /><a href="#">Mobile Friendly</a>
+            </div>
+            <div class="lft-holder">
+                <img src="includes/images/icon2.png" class="floatleft" /><a href="#">Mobile Friendly</a>
+            </div>
+            <div class="lft-holder">
+                <img src="includes/images/icon3.png" class="floatleft" /><a href="#">Mobile Friendly</a>
+            </div>
+            <div class="lft-holder">
+                <img src="includes/images/icon4.png" class="floatleft" /><a href="#">Mobile Friendly</a>
+            </div>
+        </div>
+        <div class="rgt">
+            <div class="ryt1">
+                <h1><span>Latest</span> News</h1>
+                <div class="ryt-holder">
+                    <img src="includes/images/img1.png" class="floatleft" />
+                    <div class="floatleft">
+                        <h5>Aston Martin DB9</h5>
+                        <p class="floatryt">Date:<span class="blue"> May 17, 2013</span></p>
+                        <div class="clr"></div>
+                        <p>Sed aliquam semper bibendum. Nunc lobortis commodo ligula, ut tempor felis semper ut. Cras et metus erat. Donec eleifend pharetra dapibus. </p>
+                    </div>
+                </div>
+                <div class="ryt-holder">
+                    <img src="includes/images/img1.png" class="floatleft" />
+                    <div class="floatleft">
+                        <h5>Aston Martin DB9</h5>
+                        <p class="floatryt">Date:<span class="blue"> May 17, 2013</span></p>
+                        <div class="clr"></div>
+                        <p>Sed aliquam semper bibendum. Nunc lobortis commodo ligula, ut tempor felis semper ut. Cras et metus erat. Donec eleifend pharetra dapibus. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="ryt2">
+                <h1><span>Customer</span> Feedback</h1>
+                <li class="bold">Ivamus lobortis ipsu</li>
+                <li class="bold blue">May 17, 2013</li>
+                <p class="padding">Phasellus interdum rhoncus ipsum non..</p>
+                <li class="bold">Ivamus lobortis ipsu</li>
+                <li class="bold blue">May 17, 2013</li>
+                <p class="padding">Phasellus interdum rhoncus ipsum non..</p>
+            </div>
+        </div>
+        <div class="clr"></div>
+    </div>
+
+}
+

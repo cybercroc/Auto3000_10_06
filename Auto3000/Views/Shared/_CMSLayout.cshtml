@@ -1,0 +1,527 @@
+﻿@{
+    Layout = null;   
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>@***********DashBoard Header***********@
+    <link href="@Url.Content("~/Content/main.css")" rel="stylesheet" type="text/css"/>
+    <link href="@Url.Content("~/Content/grid.css")" rel="stylesheet" type="text/css"/>
+    <link href="@Url.Content("~/Content/ChatStyle.css")" rel="stylesheet" type="text/css"/>
+
+    @Styles.Render("~/Content/themes/base/css")
+    @***********End DashBoard Header***********@
+</head>
+<body>
+    @********************Popup Form************************@
+    <div class="lightFrame" style="display: none" id="cmsConfigForm">
+        <div class="pop">
+            @if (IsSectionDefined("Db_Popup"))
+            {
+                @RenderSection("Db_Popup", required: false)
+            }
+        </div>
+    </div>
+    @********************Popup Form************************@ @****************Top Navigation***********************@
+    <div class="topBar width1150">
+        <div class="headerCollapsHldr">
+            <a href="javascript:void(0)" class="collapseHdr">&nbsp;</a>
+        </div>
+
+        <div class="topLink rgt">
+            <a href="logoff" id="bgtnlogout">
+                <img src="@Url.Content("~/Content/images/icon_logout.png")" width="21" height="22" alt="" />Log Out</a>
+        </div>
+        <div class="topLink rgt" id="divfavorites">
+        </div>
+        <div class="topLink rgt">
+            <a href="javascript:void(0)">
+
+                <img src="@Url.Content("~/Content/images/icon_ptofile.png")" width="21" height="22" alt="" />
+                @if (@Request.Cookies["Admin"] != null)
+                {@Request.Cookies["Admin"].Value}</a>
+        </div>
+        <div class="clr">
+        </div>
+    </div>
+    <div class="headerPart expand">
+        <div class="headerInner width1150">
+            <a href="@Url.RouteUrl("AdminDashboard")" class="logo2">&nbsp;</a>
+            <div class="headerLinksHolder">
+
+                <a href="javascript:void(0)" class="headerLinks openFav">
+                    <img src="@Url.Content("~/Content/images/icon_userList.png")" width="24" height="15" alt="User List" class="lft" /><span>Favourite</span></a>
+                <a href="@Url.RouteUrl("AdminDashboard")" class="headerLinks">
+                    <img src="@Url.Content("~/Content/images/icon_messageL.png")" width="18" height="15" alt="Message" class="lft" /><span>Dashboard</span></a>
+            </div>
+            <div class="clr">
+            </div>
+        </div>
+    </div>
+    @****************End Top Navigation***********************@
+    <div class='onePix'>
+        <div class='tdLInner'>
+            <ul class='bCloser'>
+
+                <li><a href="announcements">Sub Item</a></li>
+            </ul>
+            <div class='clr'></div>
+            <div class='tgHldr thrdLvl'>
+                <a href='javascript:void(0)' class=''>Main ITem</a><span class='spnCp'></span>
+                <div class='clr'></div>
+            </div>
+        </div>
+    </div>
+    <div class='onePix'>
+        <div class='tdLInner'>
+            <ul class='bCloser'>
+                <li><a href="adminusers">Admin Users</a></li>
+                <li><a href="announcements">Announcements</a></li>
+                <li><a href="feedback">Feedback</a></li>
+                <li><a href="contact">Contact</a></li>
+                <li><a href="chat">chat</a></li>
+            </ul>
+            <div class='clr'></div>
+            <div class='tgHldr thrdLvl'>
+                <a href='javascript:void(0)' class=''>Main Menu</a><span class='spnCp'></span>
+                <div class='clr'></div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="quick">
+        <div class="quickLink ">
+            <ul id="getTopFavourates">
+            </ul>
+            <div class="clr">
+            </div>
+            <a href="javascript:void(0)" class="rgt manageQuickLink mR60">Manage</a><div class="clr">
+            </div>
+        </div>
+        <div class="clr">
+        </div>
+    </div>
+    @*  <div>
+        <a href="javascript:void(0)" id="cook">Cookie Expire</a>
+    </div>*@
+    @if (Request.RawUrl.Split('/').Last() != "dashboard")
+    {
+        <div class="wrapper" id="wrapper">
+
+            <div class="contentHolder">
+                @****************Left Navigation***********************@
+
+                <div class="leftBox">
+
+                    <div class="leftController">
+                    </div>
+
+                    <ul class="mC">
+
+
+                        <li>
+                            @*<img src='Content/images/leftIcon2.png' width='19' height='19' alt='' />
+                            <a href='javascript:' class='hvDrop'>Header Name </a>
+                            <ul class='exAccord'>
+                                <h2>Header Name</h2>
+                                <li name="Menu"><a href='javascript:'>Announcements </a></li>
+
+                            </ul>*@
+                        </li>
+
+                        <li>@*<span class="mCollapse">&nbsp;</span>*@</li>
+                    </ul>
+
+                </div>
+
+                @****************End Left Navigation***********************@ @****************Right Navigation***********************@
+                <div class="rightBox wC">
+                    @if (IsSectionDefined("Db_pageHeading"))
+                    {
+                        @RenderSection("Db_pageHeading", required: false)
+                    }
+                    @if (IsSectionDefined("Db_rightFilter"))
+                    {
+                        @RenderSection("Db_rightFilter", required: false)
+                    }
+                    <div class="clr">
+                    </div>
+                    @if (IsSectionDefined("Db_rightTop"))
+                    {
+                        @RenderSection("Db_rightTop", required: false)
+                    }
+                    @if (IsSectionDefined("Db_rightNav"))
+                    {
+                        @RenderSection("Db_rightNav", required: false)
+                    }
+                </div>
+            </div>
+
+            @****************End Right Navigation***********************@
+            @RenderBody()
+            <div class="clr">
+            </div>
+        </div>
+    }
+    else if (Request.RawUrl.Split('/').Last() == "dashboard")
+    {
+
+        <div class="wrapper">
+            <div class="slideIndicator">
+                <h3>Dashboard</h3>
+                <div class="clr"></div>
+            </div>
+
+        </div>
+
+    }
+
+    @if (IsSectionDefined("Db_Dashboard"))
+    {
+        @RenderSection("Db_Dashboard", required: false)
+    }
+
+
+
+@* </div>*@ @****************Footer***********************@
+    <div class="footerHolder">
+        <div id="divContainer" class="chatLine">
+            <div class="content">
+                <input id="hdId" type="hidden" />
+                <input id="hdUserName" type="hidden" />
+            </div>
+        </div>
+
+    </div>
+    @****************End Footer***********************@ @****************************************Scripts files***************************************@
+
+
+    @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/bundles/jqueryui")
+
+    @Scripts.Render("~/Content/AdminJs")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    <script src="~/Scripts/jquery.signalR-1.0.0.js"></script>
+    <!--Reference the autogenerated SignalR hub script. -->
+    <script src="~/signalr/hubs"></script>
+
+
+
+
+
+    <script type="text/javascript">
+        $.ajaxSetup({ cache: false });
+        var urlkey = '@System.Configuration.ConfigurationManager.AppSettings["SiteUrl"]';
+        li_id = 0;
+        li_id1 = 0;
+        var ul_Control = '';
+        var order = '';
+        $(document).ready(function () {
+            formHtml1 = $('.lightFrame').html(); //Copy html to var 
+            $('.lightFrame').remove(); // remove HTML        
+            resetGrid();
+            //remove code softeng not working.
+
+
+
+        });
+    </script>
+    <script type="text/javascript">
+
+        $(function () {
+
+            $("#bgtnlogout").click(function () {
+                $.cookie('srconnectionid', null);
+            });
+
+
+
+            var UserID = window.encodeURIComponent(@Session["UserId"]);
+             $.connection.hub.qs = "uid=" + UserID + "&clientId=" + $.cookie('srconnectionid');
+
+
+             // Declare a proxy to reference the hub. 
+             var chatHub = $.connection.chatHubs;
+
+             registerClientMethods(chatHub);
+
+             // Start Hub
+             $.connection.hub.start().done(function () {
+
+                 registerEvents(chatHub)
+                 var myClientId = $.connection.hub.id;
+             });
+
+
+
+         });
+
+
+
+
+         function registerEvents(chatHub) {
+
+
+             chatHub.server.connect(name);
+
+
+             $("#chtopen").click(function () {
+                 chatHub.server.assignUser();
+             });
+
+         }
+
+         function registerClientMethods(chatHub) {
+
+             if ($.cookie('srconnectionid') != null && $.cookie('srconnectionid') != "") {
+                 BindGrid();
+             }
+
+             function BindGrid() {
+                 var UserID = window.encodeURIComponent(@Session["UserId"]);
+
+                var html = "";
+                var viewUrl = "chat?userId=" + UserID + "&clientId=" + $.cookie('srconnectionid');
+                $.ajax({
+                    type: "GET",
+                    url: viewUrl,
+                    dataType: 'json',
+                    async: false,
+                    success: function (response) {
+                        var ClientId = "";
+                        for (var i = 0; i < response.length; i++) {
+
+                            if (response[i].ToUserId == ClientId || response[i].FromUserId == ClientId) {
+                                var ctrId = "pv_" + ClientId;
+                                if (response[i].FromUserId == UserID)
+                                    $('#' + ctrId).find('#divMessage').append('<div class="message" style="color:#60B572"><span class="userName">' + response[i].UserName + '</span>: ' + response[i].Message + '</div>');
+                                else
+                                    $('#' + ctrId).find('#divMessage').append('<div class="message"><span class="userName">' + response[i].UserName + '</span>: ' + response[i].Message + '</div>');
+
+                                var height = $('#' + ctrId).find('#divMessage')[0].scrollHeight;
+                                $('#' + ctrId).find('#divMessage').scrollTop(height);
+
+                            }
+                            else {
+                                ClientId = response[i].FromUserId;
+                                var ctrId = "pv_" + response[i].FromUserId;
+                                createPrivateChatWindow(chatHub, response[i].FromUserId, ctrId, response[i].UserName);
+                                $('#' + ctrId).find('#divMessage').append('<div class="message"><span class="userName">' + response[i].UserName + '</span>: ' + response[i].Message + '</div>');
+
+
+                            }
+
+                        }
+
+                    },
+                    error: function (response) {
+                        alert("Server Error!");
+                    }
+                });
+            }
+
+            chatHub.client.userTyping = function (name, sndrid) {
+                $('#pv_' + sndrid).find('#isTyping').show().html('<em>' + name + ' is typing</em>');
+                setTimeout(function () {
+                    $('#pv_' + sndrid).find('#isTyping').html('&nbsp;');
+                }, 3000);
+            };
+
+            chatHub.client.onUserConnected = function (id, userName) {
+                var ctrId = "pv_" + id;
+                createPrivateChatWindow(chatHub, id, ctrId, userName)
+            }
+            // Calls when user successfully logged in
+            chatHub.client.onConnected = function (id, userName, allUsers, messages) {
+
+                //  setScreen(true);
+
+                $('#hdId').val(id);
+                $('#hdUserName').val(userName);
+                $('#spanUser').html(userName);
+
+                // Add All Users
+                for (i = 0; i < allUsers.length; i++) {
+
+                    AddUser(chatHub, allUsers[i].ConnectionId, allUsers[i].UserName);
+                }
+
+                // Add Existing Messages
+                for (i = 0; i < messages.length; i++) {
+
+                    AddMessage(messages[i].UserName, messages[i].Message);
+                }
+
+
+            }
+
+            // On New User Connected
+            chatHub.client.onNewUserConnected = function (id, name) {
+
+                AddUser(chatHub, id, name);
+            }
+
+
+            // On User Disconnected
+            chatHub.client.onUserDisconnected = function (id, userName) {
+                var ctrId = 'pv_' + id;
+                $('#' + ctrId).find('#isTyping').show().html('<div class="disconnect">"' + userName + '" logged off.</div>');
+                $('#' + ctrId).find("#txtPrivateMessage").attr("disabled", "disabled").emplty();
+            }
+
+            chatHub.client.messageReceived = function (userName, message) {
+
+                AddMessage(userName, message);
+            }
+
+
+            chatHub.client.sendPrivateMessage = function (windowId, fromUserName, message, iscaller) {
+
+                var ctrId = 'pv_' + windowId;
+
+
+                if ($('#' + ctrId).length == 0) {
+
+                    createPrivateChatWindow(chatHub, windowId, ctrId, fromUserName, iscaller);
+                    var ChatCleintId;
+                    if ($.cookie('srconnectionid') != 'null' && $.cookie('srconnectionid') != "" && $.cookie('srconnectionid') != undefined) {
+                        ChatCleintId = $.cookie('srconnectionid') + windowId + ',';
+                    }
+                    else {
+                        ChatCleintId = windowId + ','
+                    }
+                    $.cookie('srconnectionid', null);
+                    $.cookie('srconnectionid', ChatCleintId, { expires: 1 });
+
+                }
+                if (iscaller == 1)
+                    $('#' + ctrId).find('#divMessage').append('<div class="message" style="color:#60B572"><span class="userName">' + fromUserName + '</span>: ' + message + '</div>');
+                else {
+                    $('#' + ctrId).find('#divMessage').append('<div class="message"><span class="userName">' + fromUserName + '</span>: ' + message + '</div>');
+                }
+                $('#' + ctrId).find('#isTyping').hide()
+                // set scrollbar
+                var height = $('#' + ctrId).find('#divMessage')[0].scrollHeight;
+                $('#' + ctrId).find('#divMessage').scrollTop(height);
+                if ($('#' + ctrId).find("#txtPrivateMessage").is(":focus")) {
+                    $('#' + ctrId).find('#headr').removeClass("header1").addClass("chatHead");
+
+                }
+                else {
+                    $('#' + ctrId).find('#headr').removeClass("chatHead").addClass("header1");
+
+                }
+
+
+            }
+        }
+
+
+
+        function createPrivateChatWindow(chatHub, userId, ctrId, userName) {
+
+            var div = '<div id="' + ctrId + '" class="chatBox"><div id="' + ctrId + '" class="chatid" rel="0">' +
+                       '<div class="chatHead" id="headr">' +
+                          '<div  style="float:right;">' +
+                          '<img id="imgMinimize" src="@Url.Content("~/includes/images/MinimizeButton_normal.png")" style="cursor:pointer; padding-right:10px" />' +
+                              '<img id="imgDelete"  style="cursor:pointer;" src="@Url.Content("~/includes/images/delete.png")" />' +
+                           '</div>' +
+
+                           '<span class="selText" rel="0">' + userName + '</span>' +
+                       '</div>' +
+                       '<div id="bd_' + ctrId + '"><div id="divMessage" class="chatBody">' +
+            '</div>' + '<span id="isTyping"></span>' +
+            '<div class="chatFooter">' +
+               '<input id="txtPrivateMessage"  class="txtmsg" type="text"   />' +
+               '<input id="btnSendMessage" class="submitButton button" type="button" value="Send"  style="display:none;"  />' +
+            '</div></div>' +
+         '</div></div><div class="clear"></div>';
+
+
+            var $div = $(div);
+
+            // DELETE BUTTON IMAGE
+            $div.find('#imgDelete').click(function () {
+                $('#' + ctrId).remove();
+                var UserId = ctrId.split('_');
+                var Id = $.cookie('srconnectionid');
+                var CId = Id.replace(UserId[1] + ',', "");
+                $.cookie('srconnectionid', null);
+                $.cookie('srconnectionid', CId, { expires: 1 });
+
+                var UserID = window.encodeURIComponent(@Session["UserId"]);
+                if (UserID != null && UserID != undefined && UserID != "") {
+                    var viewUrl = "chatmail?userId=" + UserID + "&clientId=" + UserId[1] + ',';
+                    $.ajax({
+                        type: "GET",
+                        url: viewUrl,
+                        dataType: 'json',
+                        success: function (response) {
+                        },
+                        error: function (response) {
+                            alert("Server Error!");
+                        }
+                    });
+                }
+                else {
+                    window.location(SiteUrl + "admin/login");
+                }
+            });
+
+            // Send Button event
+            $div.find("#btnSendMessage").click(function () {
+
+                $textBox = $div.find("#txtPrivateMessage");
+                var msg = $textBox.val();
+                if (msg.length > 0) {
+
+                    chatHub.server.sendPrivateMessage(userId, msg, 'A');
+                    $textBox.val('');
+                }
+            });
+
+            // Text Box event
+            var keyPressCount = 0;
+
+            $div.find("#txtPrivateMessage").focus(function () {
+                $('#' + ctrId).find('#headr').removeClass("header1").addClass("chatHead");
+
+            });
+
+            $div.find("#txtPrivateMessage").keypress(function (e) {
+                if (keyPressCount++ % 10 == 0) {
+                    chatHub.server.keypressed(userId, userName);
+                }
+                if (e.which == 13) {
+                    $div.find("#btnSendMessage").click();
+                }
+            });
+
+            $div.find('#imgMinimize').click(function () {
+                $(this).parents('.chatBox').toggleClass('minimized');;
+
+            });
+
+            AddDivToContainer($div);
+
+        }
+
+        function AddDivToContainer($div) {
+            $('#divContainer').prepend($div);
+        }
+    </script>
+
+    @if (IsSectionDefined("Db_Header"))
+    {
+        @RenderSection("Db_Header", required: false)    
+    }
+  
+@****************************************End Scripts files***************************************@
+</body>
+</html>

@@ -1,0 +1,181 @@
+﻿@{
+    ViewBag.Title = "DemoHome";
+    Layout = "~/Views/Shared/_FELayout.cshtml";
+}
+
+
+@section MiddlePart {
+    <div class="contentArea">
+        <div class="lft">
+            <div class="selection">
+                <h5>Selection Criteria</h5>
+                <div class="selectBix">
+                    <label>Price range </label>
+                    <div id="sliderRange"></div>
+                    <input type="text" id="amount" style="border: 0; color: #303030; font-weight: bold; background-color: #f4f4f4" value="$50 - $500" readonly="readonly" />
+                </div>
+                <div class="selectBix">
+                    <label>Fuel type</label>
+                    <select name="">
+                        <option>All type</option>
+                    </select>
+                </div>
+                <div class="selectBix">
+                    <a href="#" class="grnBtn">SUBMIT</a>
+                </div>
+            </div>
+        </div>
+        <div class="rgt">
+            <h1><span>Featured</span> Cars</h1>
+            <div class="sliderframe floatleft">
+                <div id="slideshow">
+                    <div class="slide">
+                        <img src="includes/images/slider1.png" alt="" />
+                        <div class="link">
+                            <li>Brand</li>
+                            <li>Brand</li>
+                            <li>Brand</li>
+                            <li>Brand</li>
+                            <li>Brand</li>
+                            <li>Brand</li>
+                            <a href="#">Brand</a>
+                        </div>
+                    </div>
+
+                    <div class="slide">
+                        <img src="includes/images/slider1.png" alt="" />
+                        <div class="link">
+                            <li>Brand</li>
+                            <li>Brand</li>
+                            <a href="#">Brand</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="nav"><a id="prev" href="#" title="Previous">Prev</a></div>
+                <div id="nav1"><a id="next" href="#" title="Next">Next</a>		</div>
+
+            </div>
+        </div>
+        <div class="clr"></div>
+        <div class="lft">
+            <h1><span>Branding</span> Text</h1>
+        </div>
+        <div class="rgt">
+            <h1><span>Branding</span> Videos</h1>
+        </div>
+        <div class="clr"></div>
+        <div class="lft">
+            <h1><span>USP</span> 's</h1>
+            <div class="lft-holder">
+                <img src="includes/images/icon1.png" class="floatleft" /><a href="#">Mobile Friendly</a>
+            </div>
+            <div class="lft-holder">
+                <img src="includes/images/icon2.png" class="floatleft" /><a href="#">Mobile Friendly</a>
+            </div>
+            <div class="lft-holder">
+                <img src="includes/images/icon3.png" class="floatleft" /><a href="#">Mobile Friendly</a>
+            </div>
+            <div class="lft-holder">
+                <img src="includes/images/icon4.png" class="floatleft" /><a href="#">Mobile Friendly</a>
+            </div>
+        </div>
+        <div class="rgt">
+            <div class="ryt1">
+                <h1><span>Latest</span> News</h1>
+                <div class="ryt-holder">
+                    <img src="includes/images/img1.png" class="floatleft" />
+                    <div class="floatleft">
+                        <h5><a id="contact" href="javascript:void(0);">Aston Martin DB9</a></h5>
+                        <p class="floatryt">Date:<span class="blue"> May 17, 2013</span></p>
+                        <div class="clr"></div>
+                        <p>Sed aliquam semper bibendum. Nunc lobortis commodo ligula, ut tempor felis semper ut. Cras et metus erat. Donec eleifend pharetra dapibus. </p>
+                    </div>
+                </div>
+                <div class="ryt-holder">
+                    <img src="includes/images/img1.png" class="floatleft" />
+                    <div class="floatleft">
+                        <h5>Aston Martin DB9</h5>
+                        <p class="floatryt">Date:<span class="blue"> May 17, 2013</span></p>
+                        <div class="clr"></div>
+                        <p>Sed aliquam semper bibendum. Nunc lobortis commodo ligula, ut tempor felis semper ut. Cras et metus erat. Donec eleifend pharetra dapibus. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="ryt2">
+                <h1><span>Customer</span> Feedback</h1>
+                <li class="bold">Ivamus lobortis ipsu</li>
+                <li class="bold blue">May 17, 2013</li>
+                <p class="padding">Phasellus interdum rhoncus ipsum non..</p>
+                <li class="bold">Ivamus lobortis ipsu</li>
+                <li class="bold blue">May 17, 2013</li>
+                <p class="padding">Phasellus interdum rhoncus ipsum non..</p>
+            </div>
+        </div>
+        <div class="clr"></div>
+    </div>
+
+    <div id="contactmodal" class="modal hide fade">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>I'm Interested</h3>
+        </div>
+        <div class="modal-body">
+            <div class="alert alert-info">
+                <h5>To: </h5>
+                <h6>auto3000.nl</h6>
+                <h6>#112 street 123</h6>
+
+                <h6>9911991111</h6>
+            </div>
+            <hr />
+            <h4>Message</h4>
+            <div class="well">
+                <p>
+                    Hello, my name is
+                <input class="textBox1" id="txtFirstName" type="text" placeholder="First Name" />
+                    <input class="textBox1" type="text" placeholder="Last Name" />,
+                </p>
+                <p>
+                    and I'm inquiring about the <strong>2012 Ford Focus</strong>
+                </p>
+                <p>
+                    I can be reached at
+                <input class="textBox1" type="text" placeholder="Email" />
+                    <input class="textBox1" type="text" placeholder="Phone Number" />. 
+                </p>
+                <p>
+                    My ZipCode is
+                <input class="textBox1" type="text" placeholder="Zip Code" />
+                </p>
+                <p>Please contact me as soon as possible.</p>
+                <p>Thank You</p>
+                <p>
+                    <input type="checkbox" />I am interested in speaking with someone about financing.
+                </p>
+            </div>
+        </div>
+        <div class="modal-footer">
+
+            <a class="grnBtn" href="javascript:void(0);">Send</a>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+
+    <script src="~/Content/bootstrap/js/bootstrap.js"></script>
+    <link href="~/Content/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" />
+    <script>
+        $(document).ready(function () {
+
+            $('#contact').click(function () {
+                $('#contactmodal').modal("show");
+            });
+        });
+
+
+    </script>
+}
